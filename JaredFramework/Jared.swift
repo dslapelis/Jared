@@ -11,7 +11,10 @@ import Foundation
 public class Jared {
     public static func Send(_ body: String, to recipient: RecipientEntity) {
         let me = Person(givenName: nil, handle: "", isMe: true)
-        let message = Message(body: TextBody(body), date: Date(), sender: me, recipient: recipient)
+        var message = Message(body: TextBody(body), date: Date(), sender: me, recipient: recipient)
+        if (message.recipient.handle.contains("chat")) {
+            message.recipient.handle = "iMessage;+;" + message.recipient.handle
+        }
         Send(message, whileBlocking: false)
     }
     

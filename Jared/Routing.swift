@@ -85,6 +85,8 @@ struct MessageRouting {
     mutating func loadBundle(_ myBundle: Bundle) {
         //Check version of the framework that this plugin is using
         //TODO: Add better version comparison (2.1.0 should be compatible with 2.0.0)
+        print(self.FrameworkVersion)
+        print(myBundle.infoDictionary?["JaredFrameworkVersion"] as! String)
         guard myBundle.infoDictionary?["JaredFrameworkVersion"] as? String == self.FrameworkVersion else {
             return
         }
@@ -190,7 +192,7 @@ struct MessageRouting {
     
     mutating func route(message myMessage: Message) {
         webHookManager?.notify(message: myMessage)
-        
+                
         // Currently don't process any images
         guard let messageText = myMessage.body as? TextBody else {
             return

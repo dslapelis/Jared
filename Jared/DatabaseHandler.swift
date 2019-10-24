@@ -173,9 +173,10 @@ class DatabaseHandler {
             
             querySinceID = rowID;
             
-            guard let senderHandle = senderHandleOptional, let text = textOptional, let destination = destinationOptional else {
+            guard let senderHandle = senderHandleOptional, let text = textOptional, var destination = destinationOptional else {
                 break
             }
+    
             
             let buddyName = ContactHelper.RetreiveContact(handle: senderHandle)?.givenName
             let myName = ContactHelper.RetreiveContact(handle: destination)?.givenName
@@ -186,6 +187,11 @@ class DatabaseHandler {
                 
                 let group = retrieveGroupInfo(chatID: roomName)
                 
+                print(destination)
+                if (destination.contains("chat")) {
+                        destination = "iMessage;+;" + destination
+                }
+                
                 if (isFromMe) {
                     sender = Person(givenName: myName, handle: destination, isMe: true)
                     recipient = group ?? Person(givenName: buddyName, handle: senderHandle, isMe: false)
@@ -193,6 +199,7 @@ class DatabaseHandler {
                     sender = Person(givenName: buddyName, handle: senderHandle, isMe: false)
                     recipient = group ?? Person(givenName: myName, handle: destination, isMe: true)
                 }
+                
                 
                 let message = Message(body: TextBody(text), date: Date(timeIntervalSince1970: epochDate), sender: sender, recipient: recipient)
                 appDelegate.Router.route(message: message)

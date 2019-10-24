@@ -11,5 +11,5 @@ post_install do |installer|
 end
 
 target "Jared" do
-	pod 'RealmSwift'
+  pod 'RealmSwift', '~> 3.18.0'
 end

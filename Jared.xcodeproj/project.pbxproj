@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D6188C0EEA4AA406C15CC9E /* Pods_Jared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4589B5638BC576CC8AB2700A /* Pods_Jared.framework */; };
+		2A5160100B0ED111A1F93DDD /* Pods_Jared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4589B5638BC576CC8AB2700A /* Pods_Jared.framework */; };
 		7F0E931D1D02FC250096BABE /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E931C1D02FC250096BABE /* Global.swift */; };
 		7F84B6221CC506790059A82B /* JaredFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F84B6211CC506790059A82B /* JaredFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F84B6261CC506790059A82B /* JaredFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F84B61F1CC506790059A82B /* JaredFramework.framework */; };
@@ -31,7 +32,6 @@
 		B37E82821FA85B210069E15D /* SendTextSingleBuddy.scpt in Resources */ = {isa = PBXBuildFile; fileRef = B37E82811FA85B210069E15D /* SendTextSingleBuddy.scpt */; };
 		B39A65E01CC1FB1B003E26B0 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A65DF1CC1FB1B003E26B0 /* Routing.swift */; };
 		B39F2B391CB3BCA700C0D35C /* SendText.scpt in Resources */ = {isa = PBXBuildFile; fileRef = B39F2B381CB3BCA700C0D35C /* SendText.scpt */; };
-		B3AECB5E2207CE2C003E32F8 /* Pods_Jared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4589B5638BC576CC8AB2700A /* Pods_Jared.framework */; };
 		B3AECB5F2207CE33003E32F8 /* JaredFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F84B61F1CC506790059A82B /* JaredFramework.framework */; };
 		B3BBA7D11CB3284A00E1749C /* CoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39EC17D1CB01FEF002C3161 /* CoreModule.swift */; };
 		B3EF1DA02206849000953DE7 /* WebHookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3327DC522066427009DD882 /* WebHookManager.swift */; };
@@ -143,6 +143,7 @@
 			files = (
 				7F84B6261CC506790059A82B /* JaredFramework.framework in Frameworks */,
 				1D6188C0EEA4AA406C15CC9E /* Pods_Jared.framework in Frameworks */,
+				2A5160100B0ED111A1F93DDD /* Pods_Jared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3AECB5F2207CE33003E32F8 /* JaredFramework.framework in Frameworks */,
-				B3AECB5E2207CE2C003E32F8 /* Pods_Jared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +322,6 @@
 				B33278751CB2CB1300BBDD3A /* Resources */,
 				B39A65DD1CC1F8BC003E26B0 /* Embed Frameworks */,
 				7D874CC6DD192CC67F87BEB5 /* [CP] Embed Pods Frameworks */,
-				B65EBE7C4ECD972DBDA97E50 /* [CP] Copy Pods Resources */,
 				B375A65A21EB15E90073F09F /* ShellScript */,
 			);
 			buildRules = (
@@ -374,7 +373,7 @@
 					};
 					B33278761CB2CB1300BBDD3A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = C7LJ587XF3;
+						DevelopmentTeam = 9L7GY7KY69;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
@@ -382,6 +381,7 @@
 						CreatedOnToolsVersion = 10.1;
 						DevelopmentTeam = C7LJ587XF3;
 						ProvisioningStyle = Automatic;
+						TestTargetID = B33278761CB2CB1300BBDD3A;
 					};
 				};
 			};
@@ -446,7 +446,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Jared/Pods-Jared-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Jared/Pods-Jared-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -457,7 +457,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jared/Pods-Jared-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jared/Pods-Jared-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AF01638400485C00E0947C76 /* [CP] Check Pods Manifest.lock */ = {
@@ -494,21 +494,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
-		};
-		B65EBE7C4ECD972DBDA97E50 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Jared/Pods-Jared-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -658,7 +643,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = C7LJ587XF3;
+				DEVELOPMENT_TEAM = 9L7GY7KY69;
 				INFOPLIST_FILE = JaredUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -681,7 +666,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = C7LJ587XF3;
+				DEVELOPMENT_TEAM = 9L7GY7KY69;
 				INFOPLIST_FILE = JaredUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -698,6 +683,7 @@
 		B3327DD622068176009DD882 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -717,12 +703,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jared.app/Contents/MacOS/Jared";
 			};
 			name = Debug;
 		};
 		B3327DD722068176009DD882 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -740,6 +728,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zekesnider.JaredTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jared.app/Contents/MacOS/Jared";
 			};
 			name = Release;
 		};

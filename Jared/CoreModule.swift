@@ -51,7 +51,7 @@ class CoreModule: RoutingModule {
         let schedule = Route(name: "/schedule", comparisons: [.startsWith: ["/schedule"]], call: self.schedule, description: NSLocalizedString("scheduleDescription"), parameterSyntax: "/schedule")
         
         let barf = Route(name: "/barf", comparisons: [.startsWith: ["/barf"]], call: self.barf, description: NSLocalizedString("barfDescription"))
-
+        
         routes = [ping, thankYou, version, send, whoami, name, schedule, barf]
         
         //Launch background thread that will check for scheduled messages to send
@@ -90,6 +90,10 @@ class CoreModule: RoutingModule {
     func sendRepeat(message: Message) -> Void {
         guard let parameters = message.getTextParameters() else {
             return Jared.Send("Inappropriate input type.", to: message.RespondTo())
+        }
+        
+        if (Int(parameters[1])! > 10) {
+            return Jared.Send("You can't send more than 10 messages at a time.", to: message.RespondTo())
         }
         
         //Validating and parsing arguments
